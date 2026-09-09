@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Héjjas Gyula</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-gray-300 min-h-screen flex flex-col">
+
+<div class="p-4">
+    <header class="flex flex-col items-center">
+        <h1 class="text-4xl">Verziókövető rendszerek</h1>
+    </header>
+
+    <main class="flex flex-col mt-10 gap-4">
+        <div class="flex flex-col items-start">
+            <h4 class="text-xl border-b-2 border-blue-500">A verziókövető rendszerek legfontosabb jellemzői</h4>
+            <ul class="list-disc list-inside pl-4">
+                <li>
+                    <strong>Változatkezelés</strong>: Minden módosítást elmentenek, így a kód korábbi állapotai bármikor visszaállíthatók.
+                </li>
+                <li>
+                    <strong>Elágazások</strong>: Lehetővé teszik, hogy a fejlesztők biztonságosan, az fő kódbázistól elkülönítve dolgozzanak az új funkciókon.
+                </li>
+                <li>
+                    <strong>Együttműködés</strong>: Több fejlesztő dolgozhat ugyanazon a projekten anélkül, hogy felülírnák egymás munkáját.
+                </li>
+                <li>
+                    <strong>Központosított vs. Elosztott működés</strong>: A modern rendszerek elosztottak, azaz minden fejlesztő gépén megvan a teljes projekt előzménye, nem csak egy központi szerveren.
+                </li>
+                <li>
+                    <strong>Nyomonkövethetőség</strong>: Pontosan látszik, hogy ki, mikor és mit változtatott a kódban.
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col items-start">
+            <h4 class="text-xl border-b-2 border-blue-500">Remote vs Local repo</h4>
+            <table class="table-auto">
+                <thead>
+                <tr>
+                    <td>
+                        Jellemző
+                    </td>
+                    <td>
+                        Remote
+                    </td>
+                    <td>
+                        Locale
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Ki láthatja?</td>
+                    <td>Bárki, aki a repo Együttműködője</td>
+                    <td>Csak az, aki a gép előtt ül</td>
+                </tr>
+                <tr>
+                    <td>Hol található?</td>
+                    <td>A helyi számítógépen</td>
+                    <td>A verziórendszerkövető-szerverén</td>
+                </tr>
+                <tr>
+                    <td>Mi a célja?</td>
+                    <td>A kód írása, tesztelése és a változtatások saját mentése.</td>
+                    <td>Együttműködésre és biztonsági mentésre használjuk.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="flex flex-col items-start">
+            <h4 class="text-xl border-b-2 border-blue-500">Legfontosabb parancsok</h4>
+            <ul class="list-disc list-inside pl-4">
+                <li>
+                    <code>git init</code>: Új, üres helyi Git tároló létrehozása.
+                </li>
+                <li>
+                    <code>git clone [url]</code>: Egy létező tároló letöltése a számítógépedre.
+                </li>
+                <li>
+                    <code>git status</code>: Megmutatja a módosított, törölt vagy még nem követett fájlok állapotát.
+                </li>
+                <li>
+                    <code>git add [fájlnév]</code>: Kiválasztott fájl hozzáadása a követett változtatásokhoz. A <code>git add .</code> az összes fájlt hozzáadja.
+                </li>
+                <li>
+                    <code>git commit -m "üzenet"</code>: A véglegesítés. Elmenti a hozzáadott változtatásokat egy egyedi üzenettel a helyi történetbe.
+                </li>
+                <li>
+                    <code>git push -u origin [ág-neve]</code>: A helyi commitok feltöltése a GitHubra.
+                </li>
+                <li>
+                    <code>git pull</code>: Letölti és azonnal be is olvassza a távoli szerveren lévő legfrissebb módosításokat a helyi kódodba.
+                </li>
+            </ul>
+        </div>
+    </main>
+</div>
+
+
+</body>
+</html>
