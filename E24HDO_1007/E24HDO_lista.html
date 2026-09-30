@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+</head>
+
+<style>
+  .bigger_font_size{
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .bolder{font-weight: bolder;}
+  .red{color: red;}
+  .blue{color: blue;}
+  .hotpink{color: hotpink;}
+  .deepskyblue{color: deepskyblue;}
+  dt{font-weight: bolder;}
+  .square_symboled_list{list-style-type: square;}
+  .abc_symboled_list{list-style-type: upper-alpha;}
+  .roman_number_symboled_list{list-style-type: upper-roman;}
+  .decimal_symboled_list{
+    list-style-type: decimal;
+  }
+
+</style>
+
+<body>
+
+
+<h1>Lista készítése</h1>
+
+<div style="display: flex; flex-direction: row; gap: 50px; items-align: center;">
+  <div>
+    <h2>a. Rendezetlen lista</h2>
+
+    <ul>
+      <li>piros</li>
+      <li>kék</li>
+      <li>sárga</li>
+      <li>barna</li>
+    </ul>
+
+    <ul class="bigger_font_size blue square_symboled_list">
+      <li>sárga</li>
+      <li>fehér</li>
+      <li>zöld</li>
+      <li>kék</li>
+    </ul>
+
+    <h2>b. Rendezett lista</h2>
+
+    <ol>
+      <li>pink</li>
+      <li>kék</li>
+      <li>sárga</li>
+      <li>barna</li>
+    </ol>
+
+    <h2>c. Nagybetűk</h2>
+    <ul class="abc_symboled_list">
+      <li>sárga</li>
+      <li>fehér</li>
+      <li>zöld</li>
+      <li>kék</li>
+    </ul>
+
+    <h2>d. Római számok</h2>
+    <ul class="roman_number_symboled_list">
+      <li>I. ÉVF</li>
+      <li>II. ÉVF</li>
+      <li>III. ÉVF</li>
+    </ul>
+
+  </div>
+
+  <div>
+    <h2>e. Inline style</h2>
+
+    <ul class="red abc_symboled_list">
+      <li>Sárga</li>
+      <li>Kék</li>
+      <li>Zöld</li>
+      <li>Pink</li>
+    </ul>
+
+    <h2>f. HTML Description Lists</h2>
+
+    <dl class="deepskyblue">
+      <dt>Farkas</dt>
+      <dd>Kutyaszerű ragadozó emlős</dd>
+      <dt>Fájl</dt>
+      <dd>Szöveges állomány</dd>
+      <dt>Oroszlán</dt>
+      <dd>Macskaszerű ragadozó emlős</dd>
+      <dd>Az állatok királya</dd>
+    </dl>
+
+    <h2>g. Embedded HTML lists</h2>
+    <h3 class="hotpink">Kedvenc reggeli italaim</h3>
+    <ul>
+      <li>Kávé</li>
+      <li>Tea
+        <ul>
+          <li>
+            Fekete
+          </li>
+          <li>
+            Zöld
+          </li>
+        </ul>
+      </li>
+      <li>Tek</li>
+    </ul>
+
+    <h2>h. Control List Counting</h2>
+    <ol class="decimal_symboled_list" start="5">
+      <li>KL</li>
+      <li>EL</li>
+      <li>BL</li>
+    </ol>
+
+  </div>
+
+
+
+</div>
+
+</body>
+</html>
