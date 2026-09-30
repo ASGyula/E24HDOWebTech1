@@ -1,5 +1,5 @@
 .hatterszin{background-color: #99FF99}
-.hatterkep{background-image: url("kepek/hatter.jpg")}
+.hatterkep{background-image: url("kepek/hatter1.jpg");background-size: cover;}
 .sarga_szoveg{color:yellow;}
 .felkover{font-weight: bold;}
 .alahuzott{text-decoration: underline;}
