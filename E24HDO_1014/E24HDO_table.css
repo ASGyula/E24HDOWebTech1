@@ -1,0 +1,13 @@
+.table{background-color:lightgray; font-weight: bold; border: 1px solid black; border-collapse: collapse;}
+th, td{border: 1px solid #333;padding: 8px;}
+thead{font-style: italic; font-weight: bold;}
+td{width: 120px; height: 100px;}
+.red{background-color: red;}
+.baige{background-color:beige;}
+.yellow{background-color: yellow;}
+.magenta{}
+.scroll{overflow: scroll; display:flex; text-align: justify;}
+.center{text-align: center;}
+.top-right{display: flex; place-items: start; justify-content: right; height: 100%;}
+.bottom-center{display: flex; place-items: end; justify-content: center; height: 100%;}
+.center-start{display: flex; place-items: center; justify-content: start; height: 100%;}
