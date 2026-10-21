@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Videó lejátszása</title>
+    <style>
+        h2{
+            margin-bottom: 20px;
+        }
+
+        video{
+            display: block;
+            width: 560px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .button-row{
+            margin-bottom: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        button{
+            padding: 4px 8px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        hr{
+            margin-top: 25px;
+            margin-bottom: 25px;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .source-text{
+            text-align: right;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Videó lejátszása_E24HDO</h2>
+
+<main>
+    <video id="video" controls>
+        <source src="E24HDO_video.mp4" type="video/mp4">
+        A böngésző nem támogatja a videó elemet.
+    </video>
+
+    <div class="button-row">
+        <button onclick="playVideo()">indítás</button>
+        <button onclick="pauseVideo()">leállítás</button>
+        <button style="margin-left: 20px;" onclick="togglePlay()">indítás / leállítás</button>
+    </div>
+
+    <div style="display: flex; flex-direction: row; gap: 20px;">
+        <div class="button-row">
+            <button onclick="muteVideo()">néma</button>
+            <button onclick="setVolume(0.2)">halk</button>
+            <button onclick="setVolume(1.0)">hangos</button>
+        </div>
+
+        <div class="button-row">
+            <button onclick="setSpeed(0.25)">nagyon lassú</button>
+            <button onclick="setSpeed(0.5)">lassú</button>
+            <button onclick="setSpeed(1.0)">normál</button>
+            <button onclick="setSpeed(1.5)">gyorsabb</button>
+            <button onclick="setSpeed(2.0)">nagyon gyors</button>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row; gap: 20px;">
+        <div class="button-row">
+            <button onclick="setSize(320)">kicsi</button>
+            <button onclick="setSize(560)">normál</button>
+            <button onclick="setSize(800)">nagy</button>
+        </div>
+        <div class="button-row">
+            <button onclick="checkEnded()">befejeződött-e</button>
+            <button onclick="showDuration()">videó hossza (mp)</button>
+            <button onclick="showCurrentTime()">jelenlegi pozíció</button>
+        </div>
+    </div>
+</main>
+
+<hr>
+
+<div class="source-text">
+    Forrás: <a href="http://www.w3schools.com/html/html5_video.asp" target="_blank">http://www.w3schools.com/html/html5_video.asp</a>
+</div>
+
+<script>
+    const video = document.getElementById('video');
+
+    function playVideo(){
+        video.play();
+    }
+
+    function pauseVideo(){
+        video.pause();
+    }
+
+    function togglePlay(){
+        if (video.paused){
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    function muteVideo(){
+        video.muted = !video.muted;
+    }
+
+    function setVolume(value){
+        video.muted = false;
+        video.volume = value;
+    }
+
+    function setSpeed(rate){
+        video.playbackRate = rate;
+    }
+
+    function setSize(px){
+        video.style.width = px + 'px';
+    }
+
+    function checkEnded(){
+        alert(video.ended ? 'Igen' : 'Nem');
+    }
+
+    function showDuration(){
+        if(isNaN(video.duration)){
+            alert('A videó hossza még nem elérhető.');
+        }else{
+            alert('A videó teljes hossza: ' + Math.round(video.duration) + ' mperc');
+        }
+    }
+
+    function showCurrentTime(){
+        alert('Jelenlegi pozíció: ' + Math.round(video.currentTime) + ' mperc');
+    }
+</script>
+
+</body>
+</html>

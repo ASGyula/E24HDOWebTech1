@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>gap rács</title>
+
+    <style>
+        .flex-container{
+            background-color: #99FF99;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px 70px;
+            border: 1px solid black;
+            padding: 15px;
+        }
+        .flex-container div{
+            background-color: #FF9999;
+            border: 1px solid black;
+            width: 130px;
+            height: 90px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .red{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>A gap tulajdonság flexbox segítségével</h1>
+<p>A <italic>gap</italic> tulajdonsággal adjuk meg a sorok és oszlopok közötti távolság egy flexbox elrendezésben.</p>
+
+<h1 class="red">A flexbox elrendezésnél a sorok között 20px, az oszlopok között pedig 70px a távolság.</h1>
+
+<div class="flex-container">
+    <div>
+        1
+    </div>
+    <div>
+        2
+    </div>
+    <div>
+        3
+    </div>
+    <div>
+        4
+    </div>
+    <div>
+        5
+    </div>
+    <div>
+        6
+    </div>
+    <div>
+        7
+    </div>
+    <div>
+        8
+    </div>
+</div>
+
+</body>
+</html>

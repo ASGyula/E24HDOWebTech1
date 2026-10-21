@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Videó lejátszása</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        h2{
+            margin-bottom: 20px;
+        }
+        video{
+            display: block;
+            width: 560px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .button-row{
+            margin-bottom: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        button{
+            padding: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            background-color: lightskyblue;
+            color: black;
+            border:1px solid black;
+            border-radius: 8px;
+        }
+
+        hr{
+            margin-top: 25px;
+            margin-bottom: 25px;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .source-text{
+            text-align: right;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Videó lejátszása_E24HDO</h2>
+
+<main>
+    <video id="video" controls>
+        <source src="Aiobahn%20+81%20feat.%20KOTOKO%20-%20INTERNET%20YAMERO%20(Official%20Music%20Video)%20%5BTheme%20for%20NEEDY%20GIRL%20OVERDOSE%5D.mp4" type="video/mp4">
+        A böngésző nem támogatja a videó elemet.
+    </video>
+
+    <div class="button-row ">
+        <button class="material-symbols-outlined" onclick="playVideo()">
+            play_arrow
+        </button>
+        <button class="material-symbols-outlined" onclick="pauseVideo()">stop</button>
+        <button class="material-symbols-outlined" style="margin-left: 20px;" onclick="togglePlay()">play_pause</button>
+    </div>
+
+    <div style="display: flex; flex-direction: row; gap: 20px;">
+        <div class="button-row">
+            <button class="material-symbols-outlined" onclick="muteVideo()">volume_off</button>
+            <button class="material-symbols-outlined" onclick="setVolume(0.2)">volume_mute</button>
+            <button class="material-symbols-outlined" onclick="setVolume(1.0)">volume_up</button>
+        </div>
+
+        <div class="button-row">
+            <button class="material-symbols-outlined" onclick="setSpeed(0.25)">slow_motion_video</button>
+            <button class="material-symbols-outlined" onclick="setSpeed(0.5)">fast_rewind</button>
+            <button class="material-symbols-outlined" onclick="setSpeed(1.0)">play_arrow</button>
+            <button class="material-symbols-outlined" onclick="setSpeed(1.5)">fast_forward</button>
+            <button class="material-symbols-outlined" onclick="setSpeed(2.0)">keyboard_double_arrow_right</button>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-direction: row; gap: 20px;">
+        <div class="button-row">
+            <button class="material-symbols-outlined" onclick="setSize(320)">photo_size_select_small</button>
+            <button class="material-symbols-outlined" onclick="setSize(560)">photo_size_select_large</button>
+            <button class="material-symbols-outlined" onclick="setSize(800)">photo</button>
+        </div>
+        <div class="button-row">
+            <button class="material-symbols-outlined" onclick="checkEnded()">check</button>
+            <button class="material-symbols-outlined" onclick="showDuration()">timer</button>
+            <button class="material-symbols-outlined" onclick="showCurrentTime()">schedule</button>
+        </div>
+    </div>
+</main>
+
+<hr>
+
+<div class="source-text">
+    Forrás: <a href="http://www.w3schools.com/html/html5_video.asp" target="_blank">http://www.w3schools.com/html/html5_video.asp</a>
+</div>
+
+<script>
+    const video = document.getElementById('video');
+
+    function playVideo(){
+        video.play();
+    }
+
+    function pauseVideo(){
+        video.pause();
+    }
+
+    function togglePlay(){
+        if (video.paused){
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    function muteVideo(){
+        video.muted = !video.muted;
+    }
+
+    function setVolume(value){
+        video.muted = false;
+        video.volume = value;
+    }
+
+    function setSpeed(rate){
+        video.playbackRate = rate;
+    }
+
+    function setSize(px){
+        video.style.width = px + 'px';
+    }
+
+    function checkEnded(){
+        alert(video.ended ? 'Igen' : 'Nem');
+    }
+
+    function showDuration(){
+        if(isNaN(video.duration)){
+            alert('A videó hossza még nem elérhető.');
+        }else{
+            alert('A videó teljes hossza: ' + Math.round(video.duration) + ' mperc');
+        }
+    }
+
+    function showCurrentTime(){
+        alert('Jelenlegi pozíció: ' + Math.round(video.currentTime) + ' mperc');
+    }
+</script>
+
+</body>
+</html>

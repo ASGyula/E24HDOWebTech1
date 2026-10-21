@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>gap rács</title>
+
+    <style>
+        .grid-container{
+            background-color: #99FF99;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px 50px;
+            border: 1px solid black;
+        }
+        .grid-container div{
+            background-color: #FF9999;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h1>A gap tulajdonság rács segítségével</h1>
+<p>A <italic>gap</italic> tulajdonsággal adjuk meg a sorok és oszlopok közötti távolság.</p>
+<p>A rácsnak a sorai között 20 px, az oszlopai között pedig 50 px a távolság.</p>
+
+<div class="grid-container">
+    <div>
+        1
+    </div>
+    <div>
+        2
+    </div>
+    <div>
+        3
+    </div>
+    <div>
+        4
+    </div>
+    <div>
+        5
+    </div>
+    <div>
+        6
+    </div>
+    <div>
+        7
+    </div>
+    <div>
+        8
+    </div>
+</div>
+
+</body>
+</html>
