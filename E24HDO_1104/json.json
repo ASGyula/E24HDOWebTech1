@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nev": "Kovács János",
+    "email": "janos@example.com",
+    "aktiv": true
+  },
+  {
+    "id": 2,
+    "nev": "Nagy Szabina",
+    "email": "szabina@example.com",
+    "aktiv": false
+  },
+  {
+    "id": 3,
+    "nev": "Kiss Péter",
+    "email": "peter@example.com",
+    "aktiv": true
+  }
+]

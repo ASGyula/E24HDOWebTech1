@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>audio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+<div class="m-10">
+    <header class="flex justify-center w-full mb-4">
+        <img src="https://cdn.langeek.co/photo/28255/original/?type=jpeg" alt="audio" class="w-full object-cover h-[400px] rounded-md">
+        <h1 class="absolute top-20 text-2xl">audio</h1>
+    </header>
+
+    <main class="space-y-4">
+        <div class="flex flex-row gap-4">
+            <audio id="audio" controls>
+                <source src="jazzy.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div id="ended_div" class="flex flex-row gap-4 text-red-500">
+
+            </div>
+        </div>
+
+
+        <div class="flex flex-row gap-4">
+            <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="togglePlay()">lejátszás/szünet</button>
+            <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="playPositive()">pozitív</button>
+            <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="playNegative()">negatív</button>
+        </div>
+
+        <div class="flex flex-row gap-10">
+            <div class="button-row">
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="muteAudio()">néma</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="setVolume(0.2)">halk</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="setVolume(1.0)">hangos</button>
+            </div>
+
+            <div class="flex flex-row gap-4">
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="setSpeed(0.25)">nagyon lassú</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="setSpeed(0.5)">lassú</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="setSpeed(1.0)">normál</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="setSpeed(1.5)">gyorsabb</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="setSpeed(2.0)">nagyon gyors</button>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row; gap: 20px;">
+            <div class="flex flex-row gap-4">
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="checkEnded()">befejeződött-e</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="showDuration()">audió hossza (mp)</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="showCurrentTime()">jelenlegi pozíció</button>
+                <button class="bg-white hover:bg-gray-100 cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" onclick="jumpTo(90)">ugrás másfél perchez</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="absolute bottom-0 left-0 w-full bg-rose-200 px-2 text-black">
+        <ul class="flex flex-row gap-2 justify-between">
+            <li>footer</li>
+        </ul>
+    </footer>
+    <audio id="negative">
+        <source src="no.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="positive">
+        <source src="yes.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<script>
+    const audio = document.getElementById('audio');
+    const ended_div = document.getElementById('ended_div');
+
+    audio.addEventListener("timeupdate", function(){
+        if(audio.ended){
+            ended_div.innerHTML = 'VÉGE';
+        }else ended_div.innerHTML = '';
+    })
+
+    function playNegative(){
+        document.getElementById('negative').play();
+    }
+
+    function playPositive(){
+        document.getElementById('positive').play();
+    }
+
+    function togglePlay(){
+        if(audio.paused){
+            audio.play();
+        }else{
+            audio.pause();
+        }
+    }
+
+    function muteAudio(){
+        audio.muted = !audio.muted;
+    }
+
+
+    function setSpeed(rate){
+        audio.playbackRate = rate;
+    }
+
+    function jumpTo(value){
+        audio.currentTime = value;
+    }
+
+    function checkEnded(){
+        alert(audio.ended ? 'Igen' : 'Nem');
+    }
+
+    function showDuration(){
+        if(isNaN(audio.duration)){
+            alert('Az audio hossza még nem elérhető.');
+        }else{
+            alert('Az audio teljes hossza: ' + Math.round(audio.duration) + ' mperc');
+        }
+    }
+
+    function showCurrentTime(){
+        alert('Jelenlegi pozíció: ' + Math.round(audio.currentTime) + ' mperc');
+    }
+</script>
+
+</body>
+</html>

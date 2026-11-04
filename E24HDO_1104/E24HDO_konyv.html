@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>könyv</title>
+</head>
+<body>
+
+<h1>JSON megvalósítása - JavaScript</h1>
+
+<h3>Könyvek listája</h3>
+
+<div id="json_result" style="margin-top:10px;">
+
+</div>
+
+<script>
+    fetch('E24HDO_konyv.json')
+        .then(response => response.json())
+        .then(data => {
+            let formattedText = "<ul>";
+            data.konyvek.konyv.map((konyv) =>{
+                formattedText += `<li>Szerző: <strong>${konyv.iro}</strong>`;
+                formattedText += ` Cím: <strong>${konyv.cim}</strong>`;
+                formattedText += ` Kiadás éve: <strong>${konyv.kiadas}</strong>`;
+                formattedText += "</li>";
+                console.log(konyv);
+            })
+            formattedText += "</ul>";
+            document.getElementById("json_result").innerHTML = formattedText;
+        })
+        .catch(error => {
+            console.error('Hiba történt:', error);
+        });
+</script>
+
+</body>
+</html>

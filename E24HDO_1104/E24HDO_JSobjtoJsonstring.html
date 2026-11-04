@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>json</title>
+</head>
+<body>
+
+<h1>json fájl készítése - JavaScript-ben</h1>
+
+<div id="json">
+  <h2>JSON</h2>
+
+  <button onclick="loadJSON()">
+    JSON beolvasás
+  </button>
+</div>
+
+<div id="json_result" style="margin-top:10px;">
+
+</div>
+
+
+<script>
+  async function loadJSON(){
+    fetch('json.json')
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById("json_result").innerHTML = JSON.stringify(data);
+            })
+            .catch(error => {
+              console.error('Hiba történt:', error);
+            });
+  }
+</script>
+
+</body>
+</html>
