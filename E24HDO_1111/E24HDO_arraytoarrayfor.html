@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>_arraytoarrayfor</title>
+</head>
+<body>
+
+<h1>Tömbökön belüli tömbök ciklusa</h1>
+
+<h3>Héjjas Gyula</h3>
+
+<div id="array_result" style="margin-top:10px;">
+
+</div>
+
+<script>
+    const HGYObj = {
+        "name": "XY",
+        "age": 22,
+        "cars": [
+            {"name": "Toyota", "models": ["CHR", "Corolla", "Proace"]},
+            {"name": "Ford", "models": ["Kuga", "Mondeo", "Mustang"]},
+            {"name": "BMW", "models": ["320", "X3", "X5"]},
+            {"name": "Fiat", "models": ["500", "Panda", "Tipo"]}]
+    }
+
+    let result = "";
+    for(let i = 0; i < HGYObj.cars.length; i++){
+        result += "<strong>" + HGYObj.cars[i].name + ":</strong> <ul>";
+        for(let j = 0; j < HGYObj.cars[i].models.length; j++){
+            result += "<li>" + HGYObj.cars[i].models[j] + "</li>";
+        }
+        result += "</ul>";
+    }
+    document.getElementById("array_result").innerHTML = result;
+
+</script>
+
+</body>
+</html>

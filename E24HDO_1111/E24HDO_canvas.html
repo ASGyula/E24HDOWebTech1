@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+
+<header>
+    <h1>Rajzolás vászonra - E24HDO</h1>
+</header>
+
+<main>
+    <canvas id="canvas" width="700" height="350" style="border: 1px solid black;">
+    </canvas>
+</main>
+
+<hr style="border: 1px solid dimgray;">
+
+<footer>
+    <h5>források</h5>
+    <a href="https://www.w3schools.com/html/html5_canvas.asp">https://www.w3schools.com/html/html5_canvas.asp</a> <br><br>
+    <a href="https://www.w3schools.com/html/ref_canvas.asp">https://www.w3schools.com/html/ref_canvas.asp</a>
+</footer>
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+
+    context.fillStyle = 'gold';
+    context.font = "32px Arial";
+    context.textAlign = "center";
+    context.fillText("Progterv 2026", 340, 50);
+
+
+    context.strokeStyle = 'blue';
+    context.lineWidth = 4;
+    context.strokeRect(40, 200, 200, 100);
+
+    const x = 500;
+    const y = 140;
+    const radius = 70;
+
+    const startAngle = -1.7;
+    const endAngle = 1.2;
+
+    context.beginPath();
+    context.arc(x, y, radius, startAngle, endAngle, true);
+    context.closePath();
+    context.fillStyle = 'yellow';
+    context.fill();
+
+    context.beginPath();
+    context.arc(x, y, radius, startAngle, endAngle, true);
+    context.lineWidth = 2;
+    context.strokeStyle = 'blue';
+    context.stroke();
+
+    const grad = context.createRadialGradient(110, 105, 10, 140, 120, 95);
+    grad.addColorStop(0, "yellow");
+    grad.addColorStop(0.2, "orange");
+    grad.addColorStop(0.45, "#6a00ff");
+    grad.addColorStop(0.75, "#0033aa");
+    grad.addColorStop(1, "#00ff00");
+
+    context.fillStyle = grad;
+    context.fillRect(40, 70, 200, 100);
+
+    const iit = new Image();
+    iit.src = "iit.jpg";
+    iit.onload = function() {
+        context.drawImage(iit, 430, 230, 150, 100)
+    }
+</script>
+
+</body>
+</html>
