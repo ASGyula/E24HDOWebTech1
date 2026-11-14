@@ -1,0 +1,95 @@
+:root{
+    --primary: #db924b;
+    --secondary: #5a8486;
+    --success: #9db787;
+    --warning: #ffd25f;
+    --danger: #fc9581;
+    --background: #20161F;
+    --foreground: #fff8f0;
+    --muted: #d2ccc6;
+    --default: #413841;
+    --content1: #2c1f2b;
+    --content2: #3e2b3c;
+}
+
+body{
+    background-color: var(--background);
+    color: #f3ece7;
+    font-family: 'Roboto Light', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.birthstone-regular{
+    font-family: "Birthstone", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#main-header{
+    background-color: var(--content1);
+    border-bottom: 2px solid var(--primary);
+    position: sticky;
+    top:0;
+    z-index: 50;
+    box-shadow: var(0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1));
+}
+
+.nav-link{
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover{
+    background-color: var(--content2);
+    color: var(--primary);
+}
+
+.laboratory-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+
+.laboratory-card{
+    background-color: var(--content1);
+    border: 1px solid var(--default);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.laboratory-card:hover{
+    transform: translateY(-3px);
+    border-color: var(--primary);
+}
+.laboratory-card-secondary:hover{
+    transform: translateY(-3px);
+    border-color: var(--secondary);
+}
+.laboratory-card-danger:hover{
+    transform: translateY(-3px);
+    border-color: var(--danger);
+}
+
+.button-primary{
+    background-color: var(--primary);
+    color: var(--background);
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.6rem;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.button-primary:hover{
+    opacity: 0.9;
+}

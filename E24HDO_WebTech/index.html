@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koffein Labor | Specialty Kávé&Import Energy Drink Klub</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: var(--primary);
+            --color-secondary: var(--secondary);
+            --color-success: var(--success);
+            --color-warning: var(--warning);
+            --color-danger: var(--danger);
+            --color-background: var(--background);
+            --color-foreground: var(--foreground);
+            --color-muted: var(--muted);
+            --color-default: var(--default);
+            --color-content1: var(--content1);
+            --color-content2: var(--content2);
+        }
+
+        .special-badge{
+            background-color: var(--content2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<header id="main-header">
+    <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="flex flex-row items-center gap-4">
+                <div class="aspect-1/1 rounded-lg px-4 bg-content2 border border-primary flex items-center justify-center text-primary font-extrabold text-xl">
+                    K
+<!--                    <span class="material-symbols-outlined text-primary" style="font-size: 28px;">-->
+<!--                        coffee-->
+<!--                    </span>-->
+                    L
+                </div>
+                <div class="relative flex flex-col items-start">
+                    <span class="text-primary font-extrabold tracking-wide text-xl">
+                        KOFFEIN LABOR
+                    </span>
+                    <span class="text-secondary uppercase font-extrabold tracking-widest text-xs">
+                        Underground Brew
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="flex flex-wrap items-center gap-2">
+            <a href="index.html" class="nav-link" style="border-bottom: 2px solid var(--primary);">Kezdőlap</a>
+            <a href="katalogus.html" class="nav-link">Katalógus</a>
+            <a href="labor.html" class="nav-link">Rituálék & Videó</a>
+            <a href="csatlakozas.html" class="nav-link">VIP Várólista</a>
+            <a href="rolunk.html" class="nav-link">Laborok</a>
+        </nav>
+    </div>
+</header>
+
+<main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full space-y-12">
+    <section class="bg-content1 border border-default rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+       <div class="max-w-4xl space-y-4">
+           <span class="special-badge text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full inline-block">
+            Kizárólag meghívóval & szigorú szívritmus-vizsgálattal
+        </span>
+
+           <h1 class="text-3xl md:text-5xl font-black tracking-tight">
+               Ahol a <span style="color:var(--primary)">kézműves pörkölés</span> találkozik a <span style="color:var(--secondary)">ritka import különlegességekkel</span>.
+           </h1>
+           <span class="text-base text-muted inline-block">
+               Mondj búcsút az irodai löttyöknek és a benyelt apróknak az automatáknál! Nálunk kizárólag prémium alapanyagokból, import-különlegességekből és annyi szeretettel készül az italotok, amennyit megengedtek!
+           </span>
+
+           <div class="flex items-center gap-1">
+               <a href="#" class="underline text-primary">
+                   <button class="button-primary">
+                       Jelentkezz a várólistára
+                   </button>
+               </a>
+           </div>
+       </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <section class="col-span-1 lg:col-span-2 space-y-6">
+            <div class="flex flex-row items-center justify-between border-b border-default pb-2">
+                <h2 class="text-2xl font-bold text-primary">A Labor 3 alappillére</h2>
+                <span class="text-xs text-secondary uppercase font-semibold">S26 - Winter Royale</span>
+            </div>
+
+            <div class="laboratory-grid">
+                <article class="laboratory-card space-y-4">
+                    <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--warning);">
+                        01 / Single Origin
+                    </p>
+                    <p>
+                        Szent Ilona-szigeti és jamaicai ködös hegycsúcsairől kézzel szüretelt ritkaságok, amik csak karamellsziruppal és tejszínhabbal működnek.
+                    </p>
+                </article>
+
+                <article class="laboratory-card laboratory-card-secondary space-y-4">
+                    <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--secondary);">
+                        02 / Import Vault
+                    </p>
+                    <p>
+                        Polcokon nem kapható kiadások, Monster Espresso 304, japán GigaCola & különleges Java szériák, egyenesen a hűtőkamrából.
+                    </p>
+                </article>
+
+                <article class="laboratory-card laboratory-card-danger space-y-4">
+                    <p class="text-xs font-bold uppercase tracking-wider" style="color: var(--danger);">
+                        03 / Rituálék
+                    </p>
+                    <p>
+                        Minden ital mellé adjuk az ideális kísérőt, legyen az egy hajnali cigi, még egy cigi, vagy ha nikotin hiányod lenne, még egy cigi. Liquidet is adunk, ha ecigivel jönnél.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <aside class="col-span-1 bg-content1 border border-default rounded-2xl p-6 space-y-6">
+            <div class="space-y-4">
+                <div class="flex items-center justify-between border-b border-default pb-2">
+                    <h2 class="text-2xl font-bold text-primary">RT Labor Státusz</h2>
+                </div>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex justify-between items-center">
+                        <span class="text-muted">Várólista hossza: </span>
+                        <span class="font-mono font-bold text-warning">47 451 fő</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="text-muted">Becsült bejutás: </span>
+                        <span class="font-mono font-bold text-danger">2032 tavasz</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="text-muted">Hűtő hőmérséklet: </span>
+                        <span class="font-mono font-bold text-success">3.2 °C</span>
+                    </li>
+                    <li class="flex justify-between items-center">
+                        <span class="text-muted">Aktív közpot: </span>
+                        <span class="font-mono font-bold text-foreground">Miskolc</span>
+                    </li>
+                </ul>
+
+                <div class="bg-content2 p-4 border border-default rounded-2xl">
+                    <h4 class="text-lg font-bold text-primary uppercase">
+                        Figyelmeztetés
+                    </h4>
+                    <p class="text-xs text-justify mb-2">
+                        A rendszeres fogyasztás egyik elsődleges hatása a szív- és érrendszert érinti. A magas koffeintartalom miatt megnőhet a pulzus és a vérnyomás, ami fokozott terhelést ró a szívre.
+                    </p>
+                    <a href="https://www.hazipatika.com/taplalkozas/egeszseg_es_gasztronomia/cikkek/energiaitalok-karos-hatasai" target="_blank">
+                         <span class="text-xs text-secondary uppercase font-semibold flex flex-row items-center bg-background rounded-2xl p-4 gap-1 hover:bg-content1 transition duration-150 cursor-pointer">
+                             <span class="material-symbols-outlined">
+                                 public
+                             </span>
+                             Házipatika
+                             <span class="material-symbols-outlined w-full flex-1 text-end">
+                                 open_in_new
+                             </span>
+                         </span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer class="bg-content1 border-t border-default mt-8 py-6">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+        <div>
+            &copy; 2026 <span class="text-primary font-semibold">Koffein Labor</span> &mdash; Készítette: <span class="text-white">Héjjas Gyula (E24HDO)</span>
+        </div>
+        <div class="text-xs">
+            WebTech1
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
