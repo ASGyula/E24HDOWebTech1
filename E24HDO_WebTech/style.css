@@ -93,3 +93,32 @@ body{
 .button-primary:hover{
     opacity: 0.9;
 }
+
+.laboratory-input,
+.laboratory-textarea{
+    width: 100%;
+    background-color: var(--background);
+    border: 1px solid var(--default);
+    color: #f3ece7;
+    padding: 0.7rem 0.9rem;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.laboratory-input:focus,
+.laboratory-textarea:focus {
+    border-color: var(--foreground);
+}
+
+.error-field{
+    border: 2px solid var(--danger) !important;
+    background-color: rgba(252, 149, 129, 0.08) !important;
+}
+
+.error-text{
+    color: var(--danger);
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+}

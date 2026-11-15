@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Várólista | Koffein Labor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: var(--primary);
+            --color-secondary: var(--secondary);
+            --color-success: var(--success);
+            --color-warning: var(--warning);
+            --color-danger: var(--danger);
+            --color-background: var(--background);
+            --color-foreground: var(--foreground);
+            --color-muted: var(--muted);
+            --color-default: var(--default);
+            --color-content1: var(--content1);
+            --color-content2: var(--content2);
+        }
+
+        .special-badge{
+            background-color: var(--content2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<header id="main-header">
+    <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="flex flex-row items-center gap-4">
+                <div class="aspect-1/1 rounded-lg px-4 bg-content2 border border-primary flex items-center justify-center text-primary font-extrabold text-xl">
+                    K
+                    L
+                </div>
+                <div class="relative flex flex-col items-start">
+                    <span class="text-primary font-extrabold tracking-wide text-xl">
+                        KOFFEIN LABOR
+                    </span>
+                    <span class="text-secondary uppercase font-extrabold tracking-widest text-xs">
+                        Underground Brew
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="flex flex-wrap items-center gap-2">
+            <a href="index.html" class="nav-link" >Kezdőlap</a>
+            <a href="katalogus.html" class="nav-link">Katalógus</a>
+            <a href="labor.html" class="nav-link">Rituálék & Videó</a>
+            <a href="csatlakozas.html" class="nav-link" style="border-bottom: 2px solid var(--primary);">VIP Várólista</a>
+            <a href="rolunk.html" class="nav-link">Laborok</a>
+        </nav>
+    </div>
+</header>
+
+<main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full space-y-12">
+    <section class="bg-content1 border border-default rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+       <div class="max-w-4xl space-y-4">
+           <span class="special-badge text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full inline-block">
+            Belépési kérelem
+        </span>
+
+           <h1 class="text-3xl md:text-5xl font-black tracking-tight">
+               Nyújtsd be a <span style="color:var(--primary)">VIP</span> tagsági <span style="color:var(--secondary)">kérelmedet</span>!
+           </h1>
+           <span class="text-base text-muted inline-block">
+               Töltsd ki az alábbi alkalmassági kérdőívet. A Koffen Labor Tanács minden kérelmet egyedileg bírál el, a várólista gyorsasága a jelentkező tömegtől és a kapacitásunktól függ.
+           </span>
+       </div>
+    </section>
+
+    <div class="bg-content1 flex flex-col p-4 rounded-2xl border border-default">
+        <form id="form" novalidate class="space-y-6">
+            <div>
+                <label for="fantasy_name" class="block text-sm font-semibold text-foreground mb-1">
+                   Fantázianév <span class="text-red-500">*</span>
+                </label>
+                <input required type="text" id="fantasy_name" name="fantasy_name" placeholder="pl. KoffeinLover_98" class="laboratory-input">
+                <div id="error_fantasy_name" class="error-text hidden"></div>
+            </div>
+
+            <div>
+                <label for="fav_drink" class="block text-sm font-semibold text-foreground mb-1">
+                   Kedvenc ital <span class="text-red-500">*</span>
+                </label>
+                <input required list="drink_list" id="fav_drink" name="fav_drink" placeholder="Gépelés..." class="laboratory-input">
+                <datalist id="drink_list">
+                    <option value="Monster Mango Loco (500 ml)">
+                    <option value="Monster Espresso 304 (Import)">
+                    <option value="Dupla Ristretto (Tej nélkül, mint egy férfi)">
+                    <option value="V60 Etióp Filterkávé">
+                    <option value="Monster Pipeline Punch">
+                </datalist>
+                <div id="error_fav_drink" class="error-text hidden"></div>
+            </div>
+
+            <div>
+                <span class="block text-sm font-semibold text-foreground mb-1">
+                    Hogyan viszonyulsz a tejhez és a cukorhoz? <span class="text-red-500">*</span>
+                </span>
+                <div class="space-y-2 bg-background p-4 rounded-lg border border-default">
+                    <label class="flex items-center gap-3 cursor-pointer text-sm text-danger">
+                        <input type="radio" name="milk_option" value="black" class="accent-[var(--primary)]">
+                        <span>Feketén / tisztán iszom</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer text-sm">
+                        <input type="radio" name="milk_option" value="monster-only" class="accent-[var(--primary)]">
+                        <span>Csak szénsavas energiaitalt fogyasztok</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer text-sm">
+                        <input type="radio" name="milk_option" value="milk-sugar" class="accent-[var(--primary)]">
+                        <span>Tejjel és 3 kanál cukorral iszom a kávét</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer text-sm">
+                        <input type="radio" name="milk_option" value="milk-sugar-monster" class="accent-[var(--primary)]">
+                        <span>Tej + cukor x Monster a kedvencem</span>
+                    </label>
+                </div>
+                <div id="error_radio" class="error-text hidden"></div>
+            </div>
+
+            <div>
+                <span class="block text-sm font-semibold text-foreground mb-2">
+                    Állítsd össze a reggeli rituálé kombódat (min. 1 kötelező) <span class="text-red-500">*</span>
+                </span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-background p-4 rounded-lg border border-default">
+                    <label class="flex items-center gap-2 cursor-pointer text-sm">
+                        <input type="checkbox" name="combo" value="cigarette" class="accent-[var(--primary)]">
+                        <span>Cigi</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm">
+                        <input type="checkbox" name="combo" value="more-cigarette" class="accent-[var(--primary)]">
+                        <span>Még egy cigi</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm">
+                        <input type="checkbox" name="combo" value="monster" class="accent-[var(--primary)]">
+                        <span>Hideg Monster</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer text-sm">
+                        <input type="checkbox" name="combo" value="hope" class="accent-[var(--primary)]">
+                        <span>Halvány remény a túlélésre</span>
+                    </label>
+                </div>
+                <div id="error_checkbox" class="error-text hidden"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                    <label for="aura_color" class="block text-sm font-semibold text-foreground mb-1">
+                        Kedvenc doboz / pörkölés színe <span class="text-red-500">*</span>
+                    </label>
+                    <div class="flex items-center gap-3 bg-background p-2 rounded-lg border border-default">
+                        <input type="color" id="aura_color" name="aura_color" value="#db924b" class="w-10 h-8 bg-transparent border-0 cursor-pointer">
+                        <span id="aura_code" class="font-mono text-xs text-gray-300">#db924b</span>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="last_sleep" class="block text-sm font-semibold text-foreground mb-1">
+                        Mikor aludtál utoljára 8 órát? *
+                    </label>
+                    <input type="date" id="last_sleep" name="last_sleep" class="laboratory-input">
+                    <div id="error_sleep" class="error-text hidden"></div>
+                </div>
+            </div>
+
+            <div>
+                <label for="laboratory_location" class="block text-sm font-semibold text-foreground mb-1">
+                    Elsődleges lazulász partizász hely kiválasztása <span class="text-red-500">*</span>
+                </label>
+                <select id="laboratory_location" name="laboratory_location" class="laboratory-input cursor-pointer">
+                    <option value="">-- Válassz egy labor központot --</option>
+                    <option value="miskolc">Miskolc - Egyetemváros Bunkerlabor</option>
+                    <option value="budapest">Budapest - Parlament Underground (Tervezett)</option>
+                    <option value="debrecen">Debrecen - Éjszakai Koffeinkamra (Üzemen kívül)</option>
+                </select>
+                <div id="error_location" class="error-text hidden"></div>
+            </div>
+
+            <div>
+                <label for="story" class="block text-sm font-semibold text-foreground mb-1">
+                    Írd le a legemlékezetesebb történetedet, ami a koffeinnel kapcsolatos (min. 15 karakter) <span class="text-red-500">*</span>
+                </label>
+                <textarea id="story" name="story" rows="3" class="laboratory-textarea" placeholder="Hajnali 3-kor még tanulnom kellett, de már elfogyott a Monster..."></textarea>
+                <div id="error_story" class="error-text hidden"></div>
+            </div>
+
+            <div class="flex flex-row flex-wrap items-center justify-end gap-4 pt-2">
+                <button type="reset" id="reset-button" class="px-5 py-3 rounded-lg border border-default text-gray-300 text-sm hover:bg-content2 transition cursor-pointer">
+                    Mezők törlése
+                </button>
+                <button type="submit" class="button-primary">Kérelem beküldése</button>
+            </div>
+        </form>
+
+        <div id="wait_list_result" style="display: none;" class="bg-content2 border-2 border-warning rounded-xl p-6 space-y-3">
+            <div class="flex items-center justify-between">
+                <span class="text-xs font-black uppercase tracking-widest text-warning">Sikeres validáció</span>
+                <span class="font-mono text-xs bg-background px-2 py-1 rounded text-foreground" id="result_color_badge"></span>
+            </div>
+            <h2 class="text-xl font-bold text-white" id="result_title"></h2>
+            <p class="text-sm text-gray-200 leading-relaxed" id="result_subtitle"></p>
+            <div class="bg-background p-4 rounded-lg border border-default flex flex-wrap justify-between gap-4 text-sm">
+                <div>
+                    <span class="text-gray-400 block text-xs">Pozíciód a sorban:</span>
+                    <span class="font-mono font-black text-lg text-danger">#54 322</span>
+                </div>
+                <div>
+                    <span class="text-gray-400 block text-xs">Becsült bejutási idő:</span>
+                    <span class="font-mono font-bold text-lg text-warning">2032. tavasza</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<footer class="bg-content1 border-t border-default mt-8 py-6">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+        <div>
+            &copy; 2026 <span class="text-primary font-semibold">Koffein Labor</span> &mdash; Készítette: <span class="text-white">Héjjas Gyula (E24HDO)</span>
+        </div>
+        <div class="text-xs">
+            WebTech1
+        </div>
+    </div>
+</footer>
+
+<script>
+
+    $(document).ready(function(){
+
+        $('#aura_color').on('input', function(){
+            $('#aura_code').text($(this).val());
+        })
+
+        $('#reset-button').on('click', function() {
+            $('.error-field').removeClass('error-field');
+            $('.error-text').addClass('hidden').text('');
+            $('#wait_list_result').slideUp();
+        });
+
+        $('#form').on('submit', function(event){
+            event.preventDefault();
+            let isHasError = false;
+
+            $('.error-field').removeClass('error-field');
+            $('.error-text').addClass('hidden').text('');
+
+            const fantasyName = $('#fantasy_name').val().trim();
+            if(fantasyName.length < 3) {
+                $('#fantasy_name').addClass('error-field');
+                $('#error_fantasy_name').removeClass('hidden').text('A fantázianevednek legalább 3 karakter hosszúnak kell lennie!');
+                isHasError = true;
+            }
+
+            const favDrink = $('#fav_drink').val().trim();
+            if(favDrink === ''){
+                $('#fav_drink').addClass('error-field');
+                $('#error_fav_drink').removeClass('hidden').text('Válassz egy italt a listából, vagy írj be egyet!');
+                isHasError = true;
+            }
+
+            const milkOption = $('input[name="milk_option"]:checked').val();
+            if(!milkOption){
+                $('#error_radio').removeClass('hidden').text('Kötelező nyilatkoznod a tej-kérdésben!');
+                isHasError = true;
+            }else if(milkOption === 'black'){
+                $('#error_radio').removeClass('hidden').text('ERETNEKSÉG! Ha nem viccből választottad ezt az opciót, akkor azonnali kitiltás jár. Válassz mást!');
+                isHasError = true;
+            }
+
+            console.log(milkOption);
+
+            const selectedCombos = $('input[name="combo"]:checked');
+            if(selectedCombos.length === 0){
+                $('#error_checkbox').removeClass('hidden').text('Legalább egy rituálé elemet (pl. cigit) pipálj be!');
+                isHasError = true;
+            }
+
+            const sleepVal = $('#last_sleep').val();
+            const today = new Date().toISOString().split('T')[0];
+            if(!sleepVal){
+                $('#last_sleep').addClass('error-field');
+                $('#error_sleep').removeClass('hidden').text('Add meg a dátumot (vagy tippelj egyet az elmúlt évtizedből)!');
+                isHasError = true;
+            }else if (sleepVal > today){
+                $('#last_sleep').addClass('error-field');
+                $('#error_sleep').removeClass('hidden').text('Ez a dátum még nem érkezett el, de örülünk, hogy ilyen optimista vagy :)');
+                isHasError = true;
+            }
+
+            const story = $('#story').val().trim();
+            if(story.length < 15){
+                $('#story').addClass('hibas-mezo');
+                $('#error_story').removeClass('hidden').text('Ennél azért részletesebb szenvedéstörténetet kérünk (min. 15 karakter)!');
+                isHasError = true;
+            }
+
+            const laboratoryLocation = $('#laboratory_location').val();
+            if(laboratoryLocation === ''){
+                $('#laboratory_location').addClass('error-field');
+                $('#error_location').removeClass('hidden').text('Válassz egy labort a legördülő listából!');
+                isHasError = true;
+            }
+
+            if(isHasError){
+                $('#wait_list_result').slideUp();
+                return;
+            }
+
+            const selectedColor = $('#aura_color').val();
+            let comboList = [];
+            selectedCombos.each(function() {
+                comboList.push($(this).parent().text().trim());
+            });
+
+            $('#result_color_badge').text('Aura: ' + selectedColor).css('border', '1px solid ' + selectedCombos);
+            $('#result_title').text('Üdv a várólistán, ' + fantasyName + '!');
+            $('#result_subtitle').html(
+                'A Koffein Labor Tanácsa rögzítette a profilodat (<strong>' + favDrink + '</strong> + <em>' + comboList.join(', ') + '</em>). ' +
+                'Mivel jelenleg minden hűtőkamránk és VIP asztalunk foglalt, a kérelmedet sikeresen besoroltuk a várakozók közé. Amint te következel a sorban, felkeresünk.'
+            );
+
+            $('#wait_list_result').hide().slideDown(600);
+            $('#form').hide();
+        });
+    })
+
+</script>
+
+</body>
+</html>
