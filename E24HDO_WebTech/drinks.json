@@ -1,0 +1,94 @@
+{
+  "drinks": [
+    {
+      "id": "IT01",
+      "name": "Monster Espresso 304 (Import)",
+      "category": "energy_drink",
+      "caffeineMg": 150,
+      "sizeInMl": 250,
+      "flavorNotes": ["pörkölt kávé", "vanília", "taurin"],
+      "colors": ["#db924b", "#f7af06"],
+      "ritualCombo": "1 doboz + hajnali cigi",
+      "danger": {
+        "color": "danger",
+        "text": "Kritikus (Hallod a színeket)"
+      },
+      "stock": "Kritikusan alacsony"
+    },
+    {
+      "id": "IT02",
+      "name": "Etióp Yirgacheffe V60",
+      "category": "specialty_coffee",
+      "caffeineMg": 185,
+      "sizeInMl": 300,
+      "flavorNotes": ["bergamott", "jázmin", "citrus"],
+      "colors": ["#60bcc5"],
+      "ritualCombo": "Tej nélkül + debuggolás",
+      "danger": {
+        "color": "warning",
+        "text": "Magas fókusz"
+      },
+      "stock": "Elérhető"
+    },
+    {
+      "id": "IT03",
+      "name": "Monster Mango Loco (500 ml)",
+      "category": "energy_drink",
+      "caffeineMg": 160,
+      "sizeInMl": 500,
+      "flavorNotes": ["mangó", "maracuja", "trópusi"],
+      "colors": ["#ffd25f"],
+      "ritualCombo": "2 doboz + egy cigi",
+      "danger": {
+        "color": "foreground",
+        "text": "Átlagos reggeli"
+      },
+      "stock": "VIP foglalás alatt"
+    },
+    {
+      "id": "IT04",
+      "name": "Kolumbiai Dupla Ristretto",
+      "category": "specialty_coffee",
+      "caffeineMg": 140,
+      "sizeInMl": 60,
+      "flavorNotes": ["étcsokoládé", "pörkölt mogyoró"],
+      "colors": ["#fc9581"],
+      "ritualCombo": "Cigi + azonnali szívritmuszavar",
+      "danger": {
+        "color": "success",
+        "text": "Tiszta löket"
+      },
+      "stock": "Elérhető"
+    },
+    {
+      "id": "IT05",
+      "name": "Japán GigaCola",
+      "category": "energy_drink",
+      "caffeineMg": 200,
+      "sizeInMl": 500,
+      "flavorNotes": ["fűszeres kóla", "guarana", "ginzeng"],
+      "colors": ["#9db787"],
+      "ritualCombo": "Beadandó előtti éjszaka (03:00)",
+      "danger": {
+        "color": "danger",
+        "text": "Kritikus (Hallod a színeket)"
+      },
+      "stock": "Csak VIP kártyával"
+    },
+    {
+      "id": "IT06",
+      "name": "Monster Pipeline Punch",
+      "category": "energy_drink",
+      "caffeineMg": 160,
+      "sizeInMl": 500,
+      "flavorNotes": ["guajava", "narancs", "maracuja"],
+      "colors": ["#f472b6"],
+      "ritualCombo": "Reggeli első előadás előtt",
+      "danger": {
+        "color": "foreground",
+        "text": "Átlagos reggeli"
+      },
+      "stock": "Elérhető"
+    }
+  ]
+}

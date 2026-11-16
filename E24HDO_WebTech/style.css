@@ -122,3 +122,34 @@ body{
     margin-top: 0.35rem;
     font-weight: 600;
 }
+
+.laboratory-table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--content1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--default);
+}
+
+.laboratory-table th{
+    background-color: var(--content2);
+    color: var(--primary);
+    text-align: left;
+    padding: 0.9rem 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--primary);
+}
+
+.laboratory-table td{
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--default);
+    font-size: 0.9rem;
+    color: #f3ece7;
+}
+
+.laboratory-table tr:hover td{
+    background-color: rgba(219, 146, 75, 0.08);
+}
