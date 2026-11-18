@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>órarend</title>
+    <style>
+        .subject{
+            background-color: #f4f4f9;
+            color: #00008b;
+            padding: 4px 8px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+        }
+        .data-row{
+            margin: 4px 0;
+            padding-left: 8px;
+        }
+        button{
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="betoltesGomb">Órarend betöltése (JSON)</button>
+
+<div id="result"></div>
+
+<script>
+    document.getElementById('betoltesGomb').addEventListener('click', function(){
+        fetch('orarendE24HDO.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Hiba");
+                }
+                return response.json();
+            })
+            .then(data => {
+                const container = document.getElementById('result');
+                container.innerHTML = '<h2>órarend</h2>';
+
+                const classes = data.E24HDO_orarend.ora;
+
+                classes.forEach(ora => {
+                    const formated = `
+                            <div class="subject">Tárgy: ${ora.targy}</div>
+                            <div class="data-row">Időpont: ${ora.idopont.nap}, ${ora.idopont.tol}:00 - ${ora.idopont.ig}:00</div>
+                            <div class="data-row">Helyszín: ${ora.helyszin}</div>
+                            <div class="data-row">Oktató: ${ora.oktató}</div>
+                            <div class="data-row">Szak: ${ora.szak}</div>
+                        `;
+                    container.innerHTML += formated;
+                });
+            })
+            .catch(error => {
+                document.getElementById('result').innerHTML = `<p style="color: red;">${error.message}</p>`;
+            });
+    });
+</script>
+
+</body>
+</html>
