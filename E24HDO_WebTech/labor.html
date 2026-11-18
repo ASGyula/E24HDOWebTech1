@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labor | Koffein Labor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: var(--primary);
+            --color-secondary: var(--secondary);
+            --color-success: var(--success);
+            --color-warning: var(--warning);
+            --color-danger: var(--danger);
+            --color-background: var(--background);
+            --color-foreground: var(--foreground);
+            --color-muted: var(--muted);
+            --color-default: var(--default);
+            --color-content1: var(--content1);
+            --color-content2: var(--content2);
+        }
+
+        .special-badge{
+            background-color: var(--content2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+
+        .ritual_list{
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+        }
+
+        .ritual_list li::marker{
+            color: var(--primary);
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<header id="main-header">
+    <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="flex flex-row items-center gap-4">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%233e2b3c' stroke='%23db924b' stroke-width='3'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' fill='%23db924b' font-family='sans-serif' font-weight='900' font-size='26'>KL</text></svg>"
+                     alt="Koffein Labor Logó"
+                     title="Koffein Labor - Underground Brew & Vault"
+                     class="w-10 h-10 rounded-lg shadow-sm">
+                <div class="relative flex flex-col items-start">
+                    <span class="text-primary font-extrabold tracking-wide text-xl">
+                        KOFFEIN LABOR
+                    </span>
+                    <span class="text-secondary uppercase font-extrabold tracking-widest text-xs">
+                        Underground Brew
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="flex flex-wrap items-center gap-2">
+            <a href="index.html" class="nav-link">Kezdőlap</a>
+            <a href="katalogus.html" class="nav-link">Katalógus</a>
+            <a href="labor.html" class="nav-link">Rituálék & Videó</a>
+            <a href="csatlakozas.html" class="nav-link">VIP Várólista</a>
+            <a href="rolunk.html" class="nav-link"  style="border-bottom: 2px solid var(--primary);">Laborok</a>
+        </nav>
+    </div>
+</header>
+
+<main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full space-y-12">
+    <section class="bg-content1 border border-default rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+        <div class="max-w-4xl space-y-4">
+           <span class="special-badge text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full inline-block">
+            Mi így nyomjuk
+           </span>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight">
+                Gyors <span style="color:var(--primary)">útmutató</span> & archív <span style="color:var(--secondary)">felvétel</span>
+            </h1>
+            <span class="text-base text-muted inline-block">
+                A tökéletes koffeinbevitel nem véletlen műve. Nézd meg a laboratóriumi bemutatót, majd kövesd a szabványosított reggeli protokollt.
+            </span>
+        </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+        <section class="lg:col-span-3 bg-content1 border border-default rounded-2xl p-6 space-y-5 shadow-xl">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-bold text-primary">Ezek vagyunk</h2>
+                <span id="video_status_span" class="font-mono text-xs px-2.5 py-1 rounded bg-background border border-default text-foreground">
+                    Állapot: Szüneteltetve
+                </span>
+            </div>
+
+            <div class="rounded-xl overflow-hidden border border-default bg-black aspect-video">
+                <video id="laboratory_video" class="w-full h-full object-cover" preload="metadata">
+                    <source src="video.mp4" type="video/mp4">
+                    A böngésződ nem támogatja a HTML5 videó lejátszását.
+                </video>
+            </div>
+
+            <div class="bg-background border border-default rounded-xl p-4 space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button id="play_pause_button" class="btn-primary w-30 text-xs px-4 py-2.5 button-primary">
+                            Lejátszás
+                        </button>
+                        <button id="restart_button" class="px-3.5 py-2.5 w-20 rounded-lg bg-content2 border border-default text-white text-xs font-semibold hover:border-primary transition cursor-pointer">
+                            Elejére
+                        </button>
+                        <button id="mute_button" class="px-3.5 py-2.5 w-20 rounded-lg bg-content2 border border-default text-foreground text-xs font-semibold hover:border-foreground transition cursor-pointer">
+                            Némítás
+                        </button>
+                        <button id="speed_button" class="px-3.5 py-2.5 w-30 rounded-lg bg-content2 border border-default text-warning text-xs font-semibold hover:border-warning transition cursor-pointer">
+                            Sebesség: 1x
+                        </button>
+                    </div>
+
+                    <div class="font-mono text-xs text-muted">
+                        Idő: <span id="video_time_span" class="text-white font-bold">00:00</span> / <span id="video_length_span">00:00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lg:col-span-2 bg-content1 border border-default rounded-2xl p-6 space-y-5 shadow-xl">
+
+            <div class="border-b border-default pb-3">
+                <span class="text-xs font-bold uppercase text-danger">Szabványos eljárásrend</span>
+                <h2 class="text-xl font-bold text-white mt-1">A Szent Reggeli Protokoll</h2>
+            </div>
+
+            <ol class="ritual_list space-y-4 text-sm text-gray-200 leading-relaxed">
+                <li class="pl-2">
+                    <strong class="text-white block">Ébredés utáni sokkterápia (07:00)</strong>
+                    Az ébresztő ötödik szundija után a hűtőkamra ajtajának kinyitása. Csak 4 °C alatti doboz jöhet szóba.
+                </li>
+                <li class="pl-2">
+                    <strong class="text-white block">Első fázis: A nyitó szál</strong>
+                    Még mielőtt bármilyen szilárd táplálék vagy értelmes gondolat érné a szervezetet, megtörténik az első cigi meggyújtása.
+                </li>
+                <li class="pl-2">
+                    <strong class="text-white block">Koffein-injekció (Monster vagy Dupla Ristretto)</strong>
+                    A választott hajtóanyag elfogyasztása 150–200 mg koffeintartalommal.
+                </li>
+                <li class="pl-2">
+                    <strong class="text-white block">Második fázis: Még egy cigi</strong>
+                    A koffein felszívódásának stabilizálása érdekében elengedhetetlen kiegészítő lépés az első dolgod előtt.
+                </li>
+                <li class="pl-2">
+                    <strong class="text-white block">Rendszerellenőrzés</strong>
+                    Ha a pulzus elérte a 110 BPM-et, utadra indulhatsz.
+                </li>
+            </ol>
+        </section>
+    </div>
+
+    <section class="bg-content1 border border-default rounded-2xl p-6 md:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-default pb-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-foreground">Beágyazott JSON &amp; Bejárás</span>
+                <h2 class="text-2xl font-bold text-primary mt-1">A szerkesztők ajánlata</h2>
+            </div>
+            <span id="curator_meta" class="font-mono text-xs text-muted bg-background px-3 py-1.5 rounded-lg border border-default">Betöltés...</span>
+        </div>
+
+        <div id="nested_json_output" class="laboratory-grid"></div>
+    </section>
+
+</main>
+
+<footer class="bg-content1 border-t border-default mt-8 py-6">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
+        <div>
+            &copy; 2026 <span class="text-primary font-semibold">Koffein Labor</span> &mdash; Készítette: <span class="text-white">Héjjas Gyula (E24HDO)</span>
+        </div>
+        <div class="text-xs">
+            WebTech1
+        </div>
+    </div>
+</footer>
+
+<script>
+    const video = document.getElementById('laboratory_video');
+    const playPauseButton = document.getElementById('play_pause_button');
+    const restartButton = document.getElementById('restart_button');
+    const muteButton = document.getElementById('mute_button');
+    const speedButton = document.getElementById('speed_button');
+    const videoStatusSpan = document.getElementById('video_status_span');
+    const videoTimeSpan = document.getElementById('video_time_span');
+    const videoLengthSpan = document.getElementById('video_length_span');
+    const outputContainer = document.getElementById('nested_json_output');
+
+    function formatTime(sec){
+        if(isNaN(sec)) return '00:00';
+        const minutes = Math.floor(sec / 60);
+        const seconds = Math.floor(sec % 60);
+        return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    }
+
+    video.addEventListener('loadedmetadata', function(){
+        videoLengthSpan.textContent = idoFormaz(video.duration);
+    });
+
+    video.addEventListener('timeupdate', function(){
+        videoTimeSpan.textContent = formatTime(video.currentTime);
+    });
+
+    playPauseButton.addEventListener('click', function(){
+        if(video.paused || video.ended){
+            video.play();
+            playPauseButton.textContent = 'Szünet';
+            videoStatusSpan.textContent = 'Állapot: Lejátszás alatt';
+            videoStatusSpan.style.color = 'var(--success)';
+        }else{
+            video.pause();
+            playPauseButton.textContent = 'Lejátszás';
+            videoStatusSpan.textContent = 'Állapot: Szüneteltetve';
+            videoStatusSpan.style.color = 'var(--foreground)';
+        }
+    });
+
+    restartButton.addEventListener('click', function(){
+        video.currentTime = 0;
+        video.play();
+        playPauseButton.textContent = 'Szünet';
+        videoStatusSpan.textContent = 'Állapot: Lejátszás alatt';
+        videoStatusSpan.style.color = 'var(--success)';
+    });
+
+    muteButton.addEventListener('click', function(){
+        video.muted = !video.muted;
+        if(video.muted){
+            muteButton.textContent = 'Hang be';
+            muteButton.style.borderColor = 'var(--danger)';
+            muteButton.style.color = 'var(--danger)';
+        }else{
+            muteButton.textContent = 'Némítás';
+            muteButton.style.borderColor = 'var(--default)';
+            muteButton.style.color = 'var(--foreground)';
+        }
+    });
+
+    speedButton.addEventListener('click', function(){
+        if(video.playbackRate === 1.0){
+            video.playbackRate = 2.0;
+            speedButton.textContent = 'Sebesség: 2x';
+        }else{
+            video.playbackRate = 1.0;
+            speedButton.textContent = 'Sebesség: 1x';
+        }
+    });
+
+    video.addEventListener('ended', function(){
+        playPauseButton.textContent = 'Újra';
+        videoStatusSpan.textContent = 'Állapot: Befejezve';
+        videoStatusSpan.style.color = 'var(--warning)';
+    });
+
+    const HGYObj = {
+        "name": "HGY",
+        "age": 22,
+        "protocols": [
+            {
+                "phase": "Reggeli Indítás (07:00)",
+                "items": ["Monster Mango Loco", "Nyitó cigi", "Második cigi"]
+            },
+            {
+                "phase": "Délelőtti Előadás",
+                "items": ["Etióp Yirgacheffe V60", "Rágó", "Túlélési ösztön"]
+            },
+            {
+                "phase": "Éjszakai Beadandó Hajrá",
+                "items": ["Monster Espresso 304", "Japán GigaCola", "Vape"]
+            }
+        ]
+    };
+
+
+    let htmlContent = '';
+    document.getElementById('curator_meta').textContent = 'Kurátor: ' + HGYObj.name + ' (' + HGYObj.age + ' éves)';
+
+    for(let i = 0; i < HGYObj.protocols.length; i++){
+        htmlContent += '<article class="laboratory-card space-y-3">';
+        htmlContent += '<h3 class="text-lg font-bold text-warning">' + HGYObj.protocols[i].phase + '</h3>';
+        htmlContent += '<ul class="space-y-1.5 text-sm text-muted list-disc pl-5">';
+
+        for(let j = 0; j < HGYObj.protocols[i].items.length; j++){
+            htmlContent += '<li>' + HGYObj.protocols[i].items[j] + '</li>';
+        }
+
+        htmlContent += '</ul>';
+        htmlContent += '</article>';
+    }
+
+    outputContainer.innerHTML = htmlContent;
+</script>
+
+</body>
+</html>

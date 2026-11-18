@@ -41,10 +41,10 @@
     <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between">
         <div class="flex items-center gap-3">
             <div class="flex flex-row items-center gap-4">
-                <div class="aspect-1/1 rounded-lg px-4 bg-content2 border border-primary flex items-center justify-center text-primary font-extrabold text-xl">
-                    K
-                    L
-                </div>
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%233e2b3c' stroke='%23db924b' stroke-width='3'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' fill='%23db924b' font-family='sans-serif' font-weight='900' font-size='26'>KL</text></svg>"
+                     alt="Koffein Labor Logó"
+                     title="Koffein Labor - Underground Brew & Vault"
+                     class="w-10 h-10 rounded-lg shadow-sm">
                 <div class="relative flex flex-col items-start">
                     <span class="text-primary font-extrabold tracking-wide text-xl">
                         KOFFEIN LABOR
@@ -57,9 +57,9 @@
         </div>
 
         <nav class="flex flex-wrap items-center gap-2">
-            <a href="index.html" class="nav-link" >Kezdőlap</a>
+            <a href="index.html" class="nav-link">Kezdőlap</a>
             <a href="katalogus.html" class="nav-link" style="border-bottom: 2px solid var(--primary);">Katalógus</a>
-            <a href="labor.html" class="nav-link">Rituálék & Videó</a>
+            <a href="labor.html" class="nav-link">Rituálék &amp; Videó</a>
             <a href="csatlakozas.html" class="nav-link">VIP Várólista</a>
             <a href="rolunk.html" class="nav-link">Laborok</a>
         </nav>
@@ -68,20 +68,42 @@
 
 <main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full space-y-12">
     <section class="bg-content1 border border-default rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
-       <div class="max-w-4xl space-y-4">
+        <div class="max-w-4xl space-y-4">
            <span class="special-badge text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full inline-block">
             Meríts ihletet
         </span>
 
-           <h1 class="text-3xl md:text-5xl font-black tracking-tight">
-               <span style="color:var(--primary)">Ritka tételek</span> & <span style="color:var(--secondary)">Import készletek</span>
-           </h1>
-           <span class="text-base text-muted inline-block">
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight">
+                <span style="color:var(--primary)">Ritka tételek</span> &amp; <span style="color:var(--secondary)">Import készletek</span>
+            </h1>
+            <span class="text-base text-muted inline-block">
                Alább láthatod kínálatunk legjavát, persze, egyéb finomságokkal is készülünk számodra Központjainkban!
            </span>
-       </div>
+        </div>
     </section>
 
+    <section class="bg-content1 border border-default rounded-2xl p-6 space-y-4 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-default pb-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-warning">A személyes napi kúrád</span>
+                <h2 class="text-2xl font-bold text-white mt-1">Rituálé Kombó</h2>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+                <div class="bg-background border border-default rounded-xl px-4 py-2 text-sm font-mono">
+                    Összkoffein: <span id="total_caffeine" class="font-bold text-success">0 mg</span>
+                    <span id="caffeine_warning" class="ml-2 text-xs text-muted">(Biztonságos zóna)</span>
+                </div>
+                <button id="clear_combo_button" class="px-4 py-2 rounded-lg border border-danger text-danger text-xs font-bold uppercase hover:bg-content2 transition cursor-pointer">
+                    Kombó ürítése
+                </button>
+            </div>
+        </div>
+
+        <div id="selected_combo_list" class="flex flex-wrap gap-2 text-sm text-muted">
+            Még nem adtál hozzá tételt a napi kúrádhoz. Kattints a kártyákon a "+ Napi kúrához" gombra!
+        </div>
+    </section>
 
     <section>
         <div class="bg-content1 flex flex-col p-4 rounded-2xl border border-default">
@@ -96,10 +118,10 @@
                         <button data-filter="all" class="filter-button px-4 py-2 rounded-lg text-xs font-bold uppercase bg-primary text-background cursor-pointer">
                             Összes tétel
                         </button>
-                        <button data-filter="energy_drink" class="filter-button px-4 py-2 rounded-lg text-xs font-bold uppercase bg-content1 border border-default text-gray-300 hover:border-primary cursor-pointer">
+                        <button data-filter="energy_drink" class="filter-button px-4 py-2 rounded-lg text-xs font-bold uppercase bg-content1 border border-default text-muted hover:border-primary cursor-pointer">
                             Csak Energiaital
                         </button>
-                        <button data-filter="specialty_coffee" class="filter-button px-4 py-2 rounded-lg text-xs font-bold uppercase bg-content1 border border-default text-gray-300 hover:border-primary cursor-pointer">
+                        <button data-filter="specialty_coffee" class="filter-button px-4 py-2 rounded-lg text-xs font-bold uppercase bg-content1 border border-default text-muted hover:border-primary cursor-pointer">
                             Csak Kávé
                         </button>
                     </div>
@@ -114,10 +136,9 @@
     <section>
         <div class="bg-content1 flex flex-col p-4 rounded-2xl border border-default">
             <div class="space-y-4">
-
                 <div class="border-b border-default pb-3">
                     <h2 class="text-2xl font-bold text-primary">Koffein-tartalom és Ajánlott Kombók</h2>
-                    <p class="text-sm text-gray-400">Összehasonlító mérések az egyetemi vizsgaidőszakra optimalizálva.</p>
+                    <p class="text-sm text-muted">Összehasonlító mérések az egyetemi vizsgaidőszakra optimalizálva.</p>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="laboratory-table">
@@ -131,20 +152,16 @@
                             <th>Veszélyességi fok</th>
                         </tr>
                         </thead>
-                        <tbody id="drinks_table_body">
-
-                        </tbody>
+                        <tbody id="drinks_table_body"></tbody>
                     </table>
                 </div>
             </div>
-
         </div>
     </section>
-
 </main>
 
 <footer class="bg-content1 border-t border-default mt-8 py-6">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted">
         <div>
             &copy; 2026 <span class="text-primary font-semibold">Koffein Labor</span> &mdash; Készítette: <span class="text-white">Héjjas Gyula (E24HDO)</span>
         </div>
@@ -157,6 +174,53 @@
 <script>
     $(document).ready(function(){
         let allDrinks = [];
+        let savedCombo = JSON.parse(localStorage.getItem('koffein_labor_combo')) || [];
+
+        function updateComboUI(){
+            const $list = $('#selected_combo_list');
+            const $totalEl = $('#total_caffeine');
+            const $warningEl = $('#caffeine_warning');
+
+            $list.empty();
+
+            if(savedCombo.length === 0){
+                $list.html('<span class="text-muted">Még nem adtál hozzá tételt a napi kúrádhoz. Kattints a kártyákon a "+ Napi kúrához" gombra!</span>');
+                $totalEl.text('0 mg').removeClass('text-warning text-danger').addClass('text-success');
+                $warningEl.text('(Biztonságos zóna)');
+                return;
+            }
+
+            let totalMg = 0;
+            $.each(savedCombo, function(index, item){
+                totalMg += item.caffeineMg;
+                const $badge = $(`
+                    <div class="flex items-center gap-2 bg-content2 border border-primary rounded-lg px-3 py-1.5 text-xs text-white">
+                        <span>${item.name} <strong class="text-warning">(${item.caffeineMg} mg)</strong></span>
+                        <button data-index="${index}" class="remove-combo-item text-danger font-bold hover:opacity-75 cursor-pointer ml-1 material-symbols-outlined" style="font-size: 12px;">close</button>
+                    </div>
+                `);
+                $list.append($badge);
+            });
+
+            $totalEl.text(totalMg + ' mg').removeClass('text-success text-warning text-danger');
+
+            if(totalMg <= 200){
+                $totalEl.addClass('text-success');
+                $warningEl.text('(Normál üzemmód)');
+            } else if(totalMg <= 400){
+                $totalEl.addClass('text-warning');
+                $warningEl.text('(Vizsgaidőszaki túlhajtás)');
+            } else {
+                $totalEl.addClass('text-danger');
+                $warningEl.text('(KRITIKUS: Hallod a színeket!)');
+            }
+        }
+
+        function saveCombo(){
+            localStorage.setItem('koffein_labor_combo', JSON.stringify(savedCombo));
+            updateComboUI();
+        }
+
         function showCards(list){
             const $grid = $('#drinks_grid');
             $grid.empty();
@@ -164,39 +228,44 @@
             $.each(list, function(index, drink){
                 let flavorNotes = '';
                 $.each(drink.flavorNotes, function(i, flavor){
-                    flavorNotes += `<span class="text-xs px-2 py-0.5 rounded bg-background border border-default text-gray-300">${flavor}</span>`;
+                    flavorNotes += `<span class="text-xs px-2 py-0.5 rounded bg-background border border-default text-muted">${flavor}</span>`;
                 });
-                const categoryName = drink.category==="energy_drink"?"Energiaital":"Specialty Kávé";
+                const categoryName = drink.category === "energy_drink" ? "Energiaital" : "Specialty Kávé";
 
                 const $card = $(`
-            <article class="laboratory-card flex flex-col justify-between space-y-4" style="display: none;">
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <span class="text-xs font-bold uppercase tracking-wider" style="color: ${drink.colors[0]};">
-                    ${categoryName}
-                  </span>
-                  <span class="font-mono text-xs text-gray-400">${drink.id}</span>
-                </div>
+                    <article class="laboratory-card flex flex-col justify-between space-y-4" style="display: none;">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold uppercase tracking-wider" style="color: ${drink.colors[0]};">
+                                    ${categoryName}
+                                </span>
+                                <span class="font-mono text-xs text-muted">${drink.id}</span>
+                            </div>
 
-                <h3 class="text-xl font-bold text-white">${drink.name}</h3>
+                            <h3 class="text-xl font-bold text-white">${drink.name}</h3>
 
-                <div class="flex items-center gap-4 text-xs font-mono text-gray-300 bg-background p-2.5 rounded-lg border border-default">
-                  <span>Koffein: <strong class="text-warning">${drink.caffeineMg} mg</strong></span>
-                  <span>+</span>
-                  <span>Kiszerelés: <strong class="text-foreground">${drink.sizeInMl} ml</strong></span>
-                </div>
+                            <div class="flex items-center gap-4 text-xs font-mono text-muted bg-background p-2.5 rounded-lg border border-default">
+                                <span>Koffein: <strong class="text-warning">${drink.caffeineMg} mg</strong></span>
+                                <span>+</span>
+                                <span>Kiszerelés: <strong class="text-foreground">${drink.sizeInMl} ml</strong></span>
+                            </div>
 
-                <div class="flex flex-wrap gap-1.5 pt-1 cursor-pointer">
-                  ${flavorNotes}
-                </div>
-              </div>
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                ${flavorNotes}
+                            </div>
+                        </div>
 
-              <div class="pt-3 border-t border-default text-xs space-y-1">
-                <div class="text-gray-400">Rituálé: <span class="text-gray-200 font-medium">${drink.ritualCombo}</span></div>
-                <div class="text-gray-400">Státusz: <span class="text-primary font-semibold">${drink.stock}</span></div>
-              </div>
-            </article>
-          `);
+                        <div class="pt-3 border-t border-default text-xs space-y-3">
+                            <div class="space-y-1">
+                                <div class="text-muted">Rituálé: <span class="text-white font-medium">${drink.ritualCombo}</span></div>
+                                <div class="text-muted">Státusz: <span class="text-primary font-semibold">${drink.stock}</span></div>
+                            </div>
+                            <button data-id="${drink.id}" class="add-combo-button w-full py-2 rounded-lg bg-content2 border border-primary text-primary font-bold uppercase tracking-wider hover:bg-primary hover:text-background transition cursor-pointer">
+                                + Napi kúrához
+                            </button>
+                        </div>
+                    </article>
+                `);
 
                 $grid.append($card);
                 $card.delay(index * 80).fadeIn(350);
@@ -208,23 +277,22 @@
             $tbody.empty();
 
             $.each(list, function(index, drink){
-                const categoryName = drink.category==="energy_drink"?"Energiaital":"Specialty Kávé";
-                const $tr = $(
-                    `
-                     <tr>
-                            <td class="font-bold text-white">${drink.name}</td>
-                            <td>${categoryName}</td>
-                            <td>${drink.sizeInMl} ml</td>
-                            <td class="font-mono text-danger font-bold">${drink.caffeineMg} mg</td>
-                            <td>${drink.ritualCombo}</td>
-                            <td><span class="px-2 py-1 rounded text-xs font-bold bg-content2 text-${drink.danger.color}">${drink.danger.text}</span></td>
-                        </tr>
-                    `
-                )
-                $tbody.append($tr)
-            })
-
+                const categoryName = drink.category === "energy_drink" ? "Energiaital" : "Specialty Kávé";
+                const $tr = $(`
+                    <tr>
+                        <td class="font-bold text-white">${drink.name}</td>
+                        <td>${categoryName}</td>
+                        <td>${drink.sizeInMl} ml</td>
+                        <td class="font-mono text-danger font-bold">${drink.caffeineMg} mg</td>
+                        <td>${drink.ritualCombo}</td>
+                        <td><span class="px-2 py-1 rounded text-xs font-bold bg-content2 text-${drink.danger.color}">${drink.danger.text}</span></td>
+                    </tr>
+                `);
+                $tbody.append($tr);
+            });
         }
+
+        updateComboUI();
 
         $.getJSON('drinks.json')
             .done(function(data){
@@ -238,9 +306,33 @@
                     .text('Hiba a drinks.json betöltésekor.');
             });
 
+        $(document).on('click', '.add-combo-button', function(){
+            const drinkId = $(this).data('id');
+            const selectedDrink = allDrinks.find(d => d.id === drinkId);
+            if(selectedDrink){
+                savedCombo.push({
+                    id: selectedDrink.id,
+                    name: selectedDrink.name,
+                    caffeineMg: selectedDrink.caffeineMg
+                });
+                saveCombo();
+            }
+        });
+
+        $(document).on('click', '.remove-combo-item', function(){
+            const idx = $(this).data('index');
+            savedCombo.splice(idx, 1);
+            saveCombo();
+        });
+
+        $('#clear_combo_button').on('click', function(){
+            savedCombo = [];
+            saveCombo();
+        });
+
         $('.filter-button').on('click', function(){
-            $('.filter-button').removeClass('bg-primary text-background').addClass('bg-content1 border border-default text-gray-300');
-            $(this).removeClass('bg-content1 border border-default text-gray-300').addClass('bg-primary text-background');
+            $('.filter-button').removeClass('bg-primary text-background').addClass('bg-content1 border border-default text-muted');
+            $(this).removeClass('bg-content1 border border-default text-muted').addClass('bg-primary text-background');
 
             const selected = $(this).data('filter');
             if(selected === 'all'){
