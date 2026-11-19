@@ -69,9 +69,9 @@
         <nav class="flex flex-wrap items-center gap-2">
             <a href="index.html" class="nav-link">Kezdőlap</a>
             <a href="katalogus.html" class="nav-link">Katalógus</a>
-            <a href="labor.html" class="nav-link">Rituálék & Videó</a>
+            <a href="labor.html" class="nav-link" style="border-bottom: 2px solid var(--primary);">Rituálék & Videó</a>
             <a href="csatlakozas.html" class="nav-link">VIP Várólista</a>
-            <a href="rolunk.html" class="nav-link"  style="border-bottom: 2px solid var(--primary);">Laborok</a>
+            <a href="rolunk.html" class="nav-link">Laborok</a>
         </nav>
     </div>
 </header>
@@ -91,7 +91,7 @@
         </div>
     </section>
 
-    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
+    <div id="grid_container" class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-stretch">
         <section class="lg:col-span-3 bg-content1 border border-default rounded-2xl p-6 space-y-5 shadow-xl">
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-bold text-primary">Ezek vagyunk</h2>
@@ -107,6 +107,11 @@
                 </video>
             </div>
 
+
+            <p class="text-xs text-muted italic text-end">
+                Forrás: Generált illusztráció és promóciós videó (Google Gemini &amp; Google Flow).
+            </p>
+
             <div class="bg-background border border-default rounded-xl p-4 space-y-4">
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div class="flex flex-wrap items-center gap-2">
@@ -121,6 +126,9 @@
                         </button>
                         <button id="speed_button" class="px-3.5 py-2.5 w-30 rounded-lg bg-content2 border border-default text-warning text-xs font-semibold hover:border-warning transition cursor-pointer">
                             Sebesség: 1x
+                        </button>
+                        <button id="size_button" class="px-3.5 py-2.5 w-20 rounded-lg bg-content2 border border-default text-success text-xs font-semibold hover:border-success transition cursor-pointer">
+                            Nagyítás
                         </button>
                     </div>
 
@@ -189,11 +197,13 @@
 </footer>
 
 <script>
+    const gridContainer = document.getElementById('grid_container');
     const video = document.getElementById('laboratory_video');
     const playPauseButton = document.getElementById('play_pause_button');
     const restartButton = document.getElementById('restart_button');
     const muteButton = document.getElementById('mute_button');
     const speedButton = document.getElementById('speed_button');
+    const sizeButton = document.getElementById('size_button');
     const videoStatusSpan = document.getElementById('video_status_span');
     const videoTimeSpan = document.getElementById('video_time_span');
     const videoLengthSpan = document.getElementById('video_length_span');
@@ -259,6 +269,22 @@
         }
     });
 
+    sizeButton.addEventListener('click', function(){
+        if(gridContainer.classList.contains('lg:grid-cols-5')){
+            gridContainer.classList.remove('lg:grid-cols-5');
+            gridContainer.classList.add('lg:grid-cols-3');
+            sizeButton.textContent = 'Kicsi';
+            sizeButton.style.borderColor = 'var(--danger)';
+            sizeButton.style.color = 'var(--danger)';
+        }else{
+            gridContainer.classList.remove('lg:grid-cols-3');
+            gridContainer.classList.add('lg:grid-cols-5');
+            sizeButton.textContent = 'Nagyítás';
+            sizeButton.style.borderColor = 'var(--success)';
+            sizeButton.style.color = 'var(--success)';
+        }
+    });
+
     video.addEventListener('ended', function(){
         playPauseButton.textContent = 'Újra';
         videoStatusSpan.textContent = 'Állapot: Befejezve';
@@ -270,15 +296,15 @@
         "age": 22,
         "protocols": [
             {
-                "phase": "Reggeli Indítás (07:00)",
+                "phase": "Reggeli indítás (07:00)",
                 "items": ["Monster Mango Loco", "Nyitó cigi", "Második cigi"]
             },
             {
-                "phase": "Délelőtti Előadás",
+                "phase": "Délelőtti előadás",
                 "items": ["Etióp Yirgacheffe V60", "Rágó", "Túlélési ösztön"]
             },
             {
-                "phase": "Éjszakai Beadandó Hajrá",
+                "phase": "Éjszakai beadandó hajrá",
                 "items": ["Monster Espresso 304", "Japán GigaCola", "Vape"]
             }
         ]

@@ -147,7 +147,7 @@
                             <th>Tétel neve</th>
                             <th>Típus</th>
                             <th>Kiszerelés</th>
-                            <th>Koffein (mg)</th>
+                            <th>Koffein</th>
                             <th>Ajánlott rituálé</th>
                             <th>Veszélyességi fok</th>
                         </tr>
@@ -189,16 +189,30 @@
                 $warningEl.text('(Biztonságos zóna)');
                 return;
             }
-
+            const grouped = new Map();
             let totalMg = 0;
-            $.each(savedCombo, function(index, item){
-                totalMg += item.caffeineMg;
+
+            savedCombo.forEach((combo, index) => {
+                totalMg += combo.caffeineMg;
+
+                if(!grouped.has(combo.id)){
+                    grouped.set(combo.id, {...combo, count: 1, firstIndex: index});
+                }else{
+                    grouped.get(combo.id).count++;
+                }
+            });
+
+            grouped.forEach((item) => {
+                let countClass = "text-success";
+                if(item.count > 4)countClass = "text-danger";
+                else if(item.count > 2)countClass = "text-warning";
+
                 const $badge = $(`
                     <div class="flex items-center gap-2 bg-content2 border border-primary rounded-lg px-3 py-1.5 text-xs text-white">
+                        <strong class="${countClass}">${item.count}x</strong>
                         <span>${item.name} <strong class="text-warning">(${item.caffeineMg} mg)</strong></span>
-                        <button data-index="${index}" class="remove-combo-item text-danger font-bold hover:opacity-75 cursor-pointer ml-1 material-symbols-outlined" style="font-size: 12px;">close</button>
-                    </div>
-                `);
+                        <button data-index="${item.firstIndex}" class="remove-combo-item text-danger font-bold hover:opacity-75 cursor-pointer ml-1 material-symbols-outlined" style="font-size: 12px;">close</button>
+                    </div>`);
                 $list.append($badge);
             });
 
@@ -207,10 +221,10 @@
             if(totalMg <= 200){
                 $totalEl.addClass('text-success');
                 $warningEl.text('(Normál üzemmód)');
-            } else if(totalMg <= 400){
+            }else if(totalMg <= 400){
                 $totalEl.addClass('text-warning');
                 $warningEl.text('(Vizsgaidőszaki túlhajtás)');
-            } else {
+            }else{
                 $totalEl.addClass('text-danger');
                 $warningEl.text('(KRITIKUS: Hallod a színeket!)');
             }
