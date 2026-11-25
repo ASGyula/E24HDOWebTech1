@@ -217,7 +217,7 @@
     }
 
     video.addEventListener('loadedmetadata', function(){
-        videoLengthSpan.textContent = idoFormaz(video.duration);
+        videoLengthSpan.textContent = formatTime(video.duration);
     });
 
     video.addEventListener('timeupdate', function(){
