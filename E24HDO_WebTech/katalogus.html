@@ -308,17 +308,32 @@
 
         updateComboUI();
 
-        $.getJSON('drinks.json')
-            .done(function(data){
+        // $.getJSON('drinks.json')
+        //     .done(function(data){
+        //         allDrinks = data.drinks;
+        //         showCards(allDrinks);
+        //         showTableBody(allDrinks);
+        //     })
+        //     .fail(function(){
+        //         $('#ajax_error')
+        //             .removeClass('hidden')
+        //             .text('Hiba a drinks.json betöltésekor.');
+        //     });
+
+        $.ajax({
+            url: 'drinks.json',
+            dataType: 'json',
+            success: function(data){
                 allDrinks = data.drinks;
                 showCards(allDrinks);
                 showTableBody(allDrinks);
-            })
-            .fail(function(){
+            },
+            error: function(){
                 $('#ajax_error')
                     .removeClass('hidden')
                     .text('Hiba a drinks.json betöltésekor.');
-            });
+            }
+        })
 
         $(document).on('click', '.add-combo-button', function(){
             const drinkId = $(this).data('id');

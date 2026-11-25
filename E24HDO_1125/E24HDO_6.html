@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>hatodik</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        input[type="text"]{
+            background-color: #a4c2f4;
+            border: 1px solid #777;
+            width: 100px;
+            padding: 2px;
+        }
+
+        .form_row{
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h2 id="main_title">jQuery feladat</h2>
+
+<p><strong>Adjon meg két egész számot!</strong></p>
+
+<form id="calc_form">
+    <div class="form_row">
+        <label for="input_a"><strong>A=</strong></label>
+        <input type="text" id="input_a">
+    </div>
+
+    <div class="form_row">
+        <label for="input_b"><strong>B=</strong></label>
+        <input type="text" id="input_b">
+    </div>
+
+    <div class="form_row">
+        <input type="radio" name="operation" id="op_mul" value="mul">
+        <label for="op_mul">A*B</label>
+    </div>
+
+    <div class="form_row">
+        <input type="radio" name="operation" id="op_div" value="div">
+        <label for="op_div">A/B</label>
+    </div>
+
+    <div class="form_row">
+        <input type="radio" name="operation" id="op_add" value="add">
+        <label for="op_add">A+B</label>
+    </div>
+
+    <div class="form_row">
+        <input type="radio" name="operation" id="op_sub" value="sub">
+        <label for="op_sub">A-B</label>
+    </div>
+
+    <div class="form_row">
+        <button type="button" id="calc_button">Számol</button>
+        <strong>Eredmény:</strong> <span id="result_area"></span>
+    </div>
+</form>
+
+<script src="6.js"/>
+</body>
+</html>

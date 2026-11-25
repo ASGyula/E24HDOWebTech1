@@ -1,0 +1,134 @@
+{
+  "egyetem": "Miskolci Egyetem",
+  "cim": "3515 Miskolc Egyetemváros",
+  "telefonszam": {
+    "vezetekes": "0646 555-125",
+    "mobil": "0670 555-4567"
+  },
+  "cim_felirat": "MI, PBP Órarend 2026",
+  "orak": {
+    "ora": [
+      {
+        "targy": "web tech i",
+        "idopont": {
+          "nap": "hétfő",
+          "tol": 10,
+          "ig": 12
+        },
+        "helyszin": "V",
+        "oktató": "Dr. Agárdi Anita",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "műszaki szaknyelv i",
+        "idopont": {
+          "nap": "hétfő",
+          "tol": 12,
+          "ig": 14
+        },
+        "helyszin": "A1/313",
+        "oktató": "Kovács Boglárka Gizella",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "mesterséges intelligencia",
+        "idopont": {
+          "nap": "kedd",
+          "tol": 8,
+          "ig": 10
+        },
+        "helyszin": "XXXIII",
+        "oktató": "Kunné Dr. Tamás Judit",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "mesterséges intelligencia",
+        "idopont": {
+          "nap": "kedd",
+          "tol": 10,
+          "ig": 12
+        },
+        "helyszin": "XXXII",
+        "oktató": "Kunné Dr. Tamás Judit",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "algoritmusok és vizsgálatuk",
+        "idopont": {
+          "nap": "kedd",
+          "tol": 14,
+          "ig": 16
+        },
+        "helyszin": "XXX",
+        "oktató": "Dr. Házy Attila",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "algoritmusok és vizsgálatuk",
+        "idopont": {
+          "nap": "kedd",
+          "tol": 16,
+          "ig": 18
+        },
+        "helyszin": "XXX",
+        "oktató": "Dr. Házy Attila",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "webes ak környezetek",
+        "idopont": {
+          "nap": "szerda",
+          "tol": 8,
+          "ig": 10
+        },
+        "helyszin": "In/202",
+        "oktató": "Dr. Kovács László József",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "web tech i",
+        "idopont": {
+          "nap": "szerda",
+          "tol": 10,
+          "ig": 12
+        },
+        "helyszin": "In/101",
+        "oktató": "Dr. Bednarik László",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "webes ak környezetek",
+        "idopont": {
+          "nap": "szerda",
+          "tol": 12,
+          "ig": 14
+        },
+        "helyszin": "In/101",
+        "oktató": "Dr. Bednarik László",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "vállalati inf. rendszerek",
+        "idopont": {
+          "nap": "szerda",
+          "tol": 14,
+          "ig": 16
+        },
+        "helyszin": "In/103",
+        "oktató": "Dr. Sasvári Péter László",
+        "szak": "programtervező informatikus"
+      },
+      {
+        "targy": "vállalati inf. rendszerek",
+        "idopont": {
+          "nap": "szerda",
+          "tol": 18,
+          "ig": 20
+        },
+        "helyszin": "In/103",
+        "oktató": "Dr. Sasvári Péter László",
+        "szak": "programtervező informatikus"
+      }
+    ]
+  }
+}

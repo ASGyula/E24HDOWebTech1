@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="4.js"></script>
+    <style>
+        label{
+            display: inline-block;
+            width: 60px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        input{
+            border: 1px solid #888;
+            padding: 3px;
+            outline: none;
+        }
+        button{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2 id="main_title" style="display: inline-block;">jQuery feladatok</h2>
+
+<p id="p1">
+    A jQuery egy JavaScript programozói könyvtár, amelyet John Resig kezdett fejleszteni.
+    <strong id="click1" style="cursor: pointer;">Kattints ide</strong>, és eltűnik!
+</p>
+
+<p id="p2">
+    Elterjedtnek tekinthető, segítségével könnyen bejárható egy HTML oldal DOM-ja.
+    <strong id="click2" style="cursor: pointer;">Kattints ide duplán</strong>, és eltűnik!
+</p>
+
+<p id="p3">
+    Effekteket és animációt adhatunk HTML elemeinkhez. Számtalan plugint írtak hozzá.
+</p>
+
+<br>
+
+<div style="display: flex; flex-direction: row; gap:10px;">
+    <button id="hide_button">elrejt</button>
+    <button id="show_button">megjelenít</button>
+    <button id="on_off_button">ki/bekapcsol</button>
+</div>
+
+<form id="request_form" style="background-color: steelblue; padding: 20px; margin-top: 20px; display: inline-block;">
+
+    <div>
+        <h2>Űrlap</h2>
+    </div>
+
+    <div>
+        <label for="name">Név:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+    </div>
+    <div>
+        <label for="password">Jelszó:</label>
+        <input type="password" id="password" name="password">
+    </div>
+
+    <button type="button" id="request_button">Jelentkezés</button>
+</form>
+
+<div style="display: flex; flex-direction: row; gap:10px;">
+    <button id="transparency_0_1_button">áttetszőség = 0.1</button>
+    <button id="transparency_0_5_button">áttetszőség = 0.5</button>
+    <button id="transparency_0_8_button">áttetszőség = 0.8</button>
+</div>
+
+<div style="display: flex; flex-direction: row; gap:10px;">
+    <button id="hide_bottom_button">elrejt</button>
+    <button id="show_bottom_button">megjelenít</button>
+    <button id="on_off_bottom_button">ki/bekapcsol</button>
+</div>
+
+</body>
+</html>
